@@ -46,6 +46,13 @@ class AudioRecorderController: UIViewController {
 
     @IBAction func playButtonPressed(_ sender: Any) {
 		player.playPause()
+		updateSlider()
+	}
+		
+	private func updateSlider() {
+		timeSlider.minimumValue = 0
+		timeSlider.maximumValue = Float(player.duration)
+		timeSlider.value = Float(player.elapsedTime)
 	}
     
     @IBAction func recordButtonPressed(_ sender: Any) {
@@ -58,6 +65,8 @@ class AudioRecorderController: UIViewController {
 		
 		timeLabel.text = timeFormatter.string(from: player.elapsedTime)
 		timeRemainingLabel.text = timeFormatter.string(from: player.timeRemaining)
+		
+		updateSlider()
 	}
 }
 
