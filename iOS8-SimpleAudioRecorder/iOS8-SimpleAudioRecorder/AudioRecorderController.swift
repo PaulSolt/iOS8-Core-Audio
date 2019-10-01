@@ -10,6 +10,8 @@ import UIKit
 
 class AudioRecorderController: UIViewController {
     
+	lazy private var player = AudioPlayer()
+	
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -43,7 +45,7 @@ class AudioRecorderController: UIViewController {
 
 
     @IBAction func playButtonPressed(_ sender: Any) {
-
+		player.playPause()
 	}
     
     @IBAction func recordButtonPressed(_ sender: Any) {
