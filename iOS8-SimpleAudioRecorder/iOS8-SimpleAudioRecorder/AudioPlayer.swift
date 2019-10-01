@@ -19,14 +19,15 @@ class AudioPlayer: NSObject {
 	// - time remaining
 	// - current position
 	
-	var audioPlayer: AVAudioPlayer!
+	var audioPlayer: AVAudioPlayer
 	var isPlaying: Bool {
 		return audioPlayer.isPlaying	// TODO: will crash if audioPlayer is nil!
 	}
 	
 	override init() {
-		super.init()
 		self.audioPlayer = AVAudioPlayer()
+		
+		super.init()
 		
 		let song = Bundle.main.url(forResource: "piano", withExtension: "mp3")! // Crash if resource doesn't exist
 		try! load(url: song) // TODO: demo purposes to get something working
