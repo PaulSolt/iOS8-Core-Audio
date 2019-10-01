@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		BD8D4B402343B330001432F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B3F2343B330001432F7 /* AppDelegate.swift */; };
 		BD8D4B422343B330001432F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B412343B330001432F7 /* SceneDelegate.swift */; };
-		BD8D4B442343B330001432F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B432343B330001432F7 /* ViewController.swift */; };
-		BD8D4B472343B330001432F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B452343B330001432F7 /* Main.storyboard */; };
 		BD8D4B492343B331001432F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B482343B331001432F7 /* Assets.xcassets */; };
 		BD8D4B4C2343B331001432F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B4A2343B331001432F7 /* LaunchScreen.storyboard */; };
+		BD8D4B552343B3DA001432F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B532343B3D9001432F7 /* Main.storyboard */; };
+		BD8D4B562343B3DA001432F7 /* AudioRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BD8D4B3C2343B330001432F7 /* iOS8-SimpleAudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS8-SimpleAudioRecorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8D4B3F2343B330001432F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD8D4B412343B330001432F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD8D4B432343B330001432F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BD8D4B462343B330001432F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD8D4B482343B331001432F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD8D4B4B2343B331001432F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD8D4B4D2343B331001432F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD8D4B532343B3D9001432F7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				BD8D4B3F2343B330001432F7 /* AppDelegate.swift */,
 				BD8D4B412343B330001432F7 /* SceneDelegate.swift */,
-				BD8D4B432343B330001432F7 /* ViewController.swift */,
-				BD8D4B452343B330001432F7 /* Main.storyboard */,
+				BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */,
+				BD8D4B532343B3D9001432F7 /* Main.storyboard */,
 				BD8D4B482343B331001432F7 /* Assets.xcassets */,
 				BD8D4B4A2343B331001432F7 /* LaunchScreen.storyboard */,
 				BD8D4B4D2343B331001432F7 /* Info.plist */,
@@ -125,9 +125,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8D4B552343B3DA001432F7 /* Main.storyboard in Resources */,
 				BD8D4B4C2343B331001432F7 /* LaunchScreen.storyboard in Resources */,
 				BD8D4B492343B331001432F7 /* Assets.xcassets in Resources */,
-				BD8D4B472343B330001432F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8D4B442343B330001432F7 /* ViewController.swift in Sources */,
 				BD8D4B402343B330001432F7 /* AppDelegate.swift in Sources */,
+				BD8D4B562343B3DA001432F7 /* AudioRecorderController.swift in Sources */,
 				BD8D4B422343B330001432F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BD8D4B452343B330001432F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD8D4B462343B330001432F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BD8D4B4A2343B331001432F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
