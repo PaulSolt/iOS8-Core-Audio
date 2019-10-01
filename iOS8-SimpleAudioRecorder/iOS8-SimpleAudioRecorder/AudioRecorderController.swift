@@ -11,6 +11,7 @@ import UIKit
 class AudioRecorderController: UIViewController {
     
 	lazy private var player = AudioPlayer()
+	lazy private var recorder = Recorder()
 	
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -59,7 +60,7 @@ class AudioRecorderController: UIViewController {
 	}
     
     @IBAction func recordButtonPressed(_ sender: Any) {
-    
+		recorder.toggleRecording()
     }
 	
 	func updateViews() {

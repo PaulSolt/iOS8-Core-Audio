@@ -8,41 +8,48 @@
 
 import AVFoundation
 
-class Recoder: NSObject {
+class Recorder: NSObject {
 
-	private var audioRecorder: AVAudioRecorder
+	// NOTE: Don't create an AVAudioRecorder() it will crash when
+	// we try to ask it if it's recording
+	private var audioRecorder: AVAudioRecorder?
 	
 	var isRecording: Bool {
-		return audioRecorder.isRecording
+		return audioRecorder?.isRecording ?? false
 	}
 	
 	override init() {
-		audioRecorder = AVAudioRecorder()
-		
 		super.init()
 	}
 	
 	func record() {
-//		audioRecorder.prepareToRecord()
-		
 		let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 		let name = ISO8601DateFormatter.string(from: Date(), timeZone: .current, formatOptions: [.withInternetDateTime])
-		print("Filename: \(name)")
+		
 		
 		// .caf extension
 		let file = documentDirectory.appendingPathComponent(name).appendingPathExtension("caf")
+		print("Filename: \(file.path)")
 		
 		// 44.1 KHz
 		// 128 / 256 KHz
 		let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // TODO: Fix force unwrap
 		
-		audioRecorder = try! AVAudioRecorder(url: file, format: format)
+		audioRecorder = try! AVAudioRecorder(url: file, format: format) // TODO: handle the failure
 		
 		// start the recoring!
-		audioRecorder.record()
+		audioRecorder?.record()
 	}
 	
 	func stop() {
-		audioRecorder.stop() // save to disk
+		audioRecorder?.stop() // save to disk
+	}
+	
+	func toggleRecording() {
+		if isRecording {
+			stop()
+		} else {
+			record()
+		}
 	}
 }
