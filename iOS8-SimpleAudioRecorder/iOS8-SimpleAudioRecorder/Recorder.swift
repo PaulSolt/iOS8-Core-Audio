@@ -8,11 +8,18 @@
 
 import AVFoundation
 
+// AnyObject for weak?
+protocol RecorderDelegate {
+    func recorderDidChangeState(_ recorder: Recorder)
+	func recorderDidFinishSavingFile(_ recorder: Recorder) // TODO: what do we know? URL
+}
+
 class Recorder: NSObject {
 
 	// NOTE: Don't create an AVAudioRecorder() it will crash when
 	// we try to ask it if it's recording
 	private var audioRecorder: AVAudioRecorder?
+	var delegate: RecorderDelegate?
 	
 	var isRecording: Bool {
 		return audioRecorder?.isRecording ?? false
@@ -39,10 +46,12 @@ class Recorder: NSObject {
 		
 		// start the recoring!
 		audioRecorder?.record()
+		notifyDelegate()
 	}
 	
 	func stop() {
 		audioRecorder?.stop() // save to disk
+		notifyDelegate()
 	}
 	
 	func toggleRecording() {
@@ -51,5 +60,9 @@ class Recorder: NSObject {
 		} else {
 			record()
 		}
+	}
+	
+	func notifyDelegate() {
+		delegate?.recorderDidChangeState(self)
 	}
 }

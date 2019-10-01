@@ -42,6 +42,7 @@ class AudioRecorderController: UIViewController {
 		print("Document dir: \(documentDirectory.path)")
 		
 		player.delegate = self
+		recorder.delegate = self
 		
 		updateSlider()
 		// TODO: test for when file isn't loaded properly, don't want a 0 duration
@@ -64,8 +65,11 @@ class AudioRecorderController: UIViewController {
     }
 	
 	func updateViews() {
-		let title = player.isPlaying ? "Pause" : "Play"
-		playButton.setTitle(title, for: .normal)
+		let playButtonTitle = player.isPlaying ? "Pause" : "Play"
+		playButton.setTitle(playButtonTitle, for: .normal)
+
+		let recordButtonTitle = recorder.isRecording ? "Stop Recording" : "Record"
+		recordButton.setTitle(recordButtonTitle, for: .normal)
 		
 		timeLabel.text = timeFormatter.string(from: player.elapsedTime)
 		timeRemainingLabel.text = timeFormatter.string(from: player.timeRemaining)
@@ -77,5 +81,15 @@ class AudioRecorderController: UIViewController {
 extension AudioRecorderController: AudioPlayerDelegate {
 	func playerDidChangeState(_ player: AudioPlayer) {
 		updateViews()
+	}
+}
+
+extension AudioRecorderController: RecorderDelegate {
+	func recorderDidChangeState(_ recorder: Recorder) {
+		updateViews()
+	}
+	
+	func recorderDidFinishSavingFile(_ recorder: Recorder) {
+		
 	}
 }
