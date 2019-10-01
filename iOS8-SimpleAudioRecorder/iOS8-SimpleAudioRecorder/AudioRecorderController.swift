@@ -40,7 +40,7 @@ class AudioRecorderController: UIViewController {
 		let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 		print("Document dir: \(documentDirectory.path)")
 		
-		
+		player.delegate = self
 	}
 
 
@@ -51,5 +51,18 @@ class AudioRecorderController: UIViewController {
     @IBAction func recordButtonPressed(_ sender: Any) {
     
     }
+	
+	func updateViews() {
+		let title = player.isPlaying ? "Pause" : "Play"
+		playButton.setTitle(title, for: .normal)
+		
+		timeLabel.text = timeFormatter.string(from: player.elapsedTime)
+		timeRemainingLabel.text = timeFormatter.string(from: player.timeRemaining)
+	}
 }
 
+extension AudioRecorderController: AudioPlayerDelegate {
+	func playerDidChangeState(_ player: AudioPlayer) {
+		updateViews()
+	}
+}
