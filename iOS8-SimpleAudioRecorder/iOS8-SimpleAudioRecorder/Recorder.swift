@@ -11,7 +11,7 @@ import AVFoundation
 // AnyObject for weak?
 protocol RecorderDelegate {
     func recorderDidChangeState(_ recorder: Recorder)
-	func recorderDidFinishSavingFile(_ recorder: Recorder) // TODO: what do we know? URL
+	func recorderDidFinishSavingFile(_ recorder: Recorder, url: URL)
 }
 
 class Recorder: NSObject {
@@ -43,6 +43,7 @@ class Recorder: NSObject {
 		let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // TODO: Fix force unwrap
 		
 		audioRecorder = try! AVAudioRecorder(url: file, format: format) // TODO: handle the failure
+		audioRecorder?.delegate = self
 		
 		// start the recoring!
 		audioRecorder?.record()
@@ -65,4 +66,22 @@ class Recorder: NSObject {
 	func notifyDelegate() {
 		delegate?.recorderDidChangeState(self)
 	}
+}
+
+extension Recorder: AVAudioRecorderDelegate {
+
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        if let error = error {
+            print("audioRecorderEncodeErrorDidOccur: \(error)")
+			
+			// TODO: handle error
+        }
+    }
+
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("audioRecorderDidFinishRecording")
+				
+		// TODO: Handle success flag
+		delegate?.recorderDidFinishSavingFile(self, url: recorder.url)
+    }
 }

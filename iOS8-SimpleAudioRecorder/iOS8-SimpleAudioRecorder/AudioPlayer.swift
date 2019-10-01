@@ -14,15 +14,6 @@ protocol AudioPlayerDelegate {
 
 class AudioPlayer: NSObject {
 	
-	// load (song)
-	// play
-	// pause
-	// are we playing? isPlaying
-	// Communicate status (time codes)
-	// - duration
-	// - time remaining
-	// - current position
-	
 	var audioPlayer: AVAudioPlayer
 	var delegate: AudioPlayerDelegate?
 	var timer: Timer?
@@ -52,11 +43,6 @@ class AudioPlayer: NSObject {
 		let song = Bundle.main.url(forResource: "piano", withExtension: "mp3")! // FIXME: Crash if resource doesn't exist
 		try! load(url: song) // TODO: demo purposes to get something working
 	}
-	
-//	init(url: URL) throws {
-//
-//		load(url: <#T##URL#>)
-//	}
 	
 	func load(url: URL) throws {
 		audioPlayer = try AVAudioPlayer(contentsOf: url)

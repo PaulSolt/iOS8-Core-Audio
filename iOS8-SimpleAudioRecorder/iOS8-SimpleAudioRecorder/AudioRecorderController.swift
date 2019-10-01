@@ -89,7 +89,10 @@ extension AudioRecorderController: RecorderDelegate {
 		updateViews()
 	}
 	
-	func recorderDidFinishSavingFile(_ recorder: Recorder) {
-		
+	func recorderDidFinishSavingFile(_ recorder: Recorder, url: URL) {
+		if !recorder.isRecording {
+//			player.stop() // TODO: do we need to do this? what happens? What do we want to happen?
+			try! player.load(url: url) // TODO: Fix the force unwrap, handle issues with file path
+		}
 	}
 }
