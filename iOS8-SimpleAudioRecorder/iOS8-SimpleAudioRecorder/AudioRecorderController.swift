@@ -41,6 +41,9 @@ class AudioRecorderController: UIViewController {
 		print("Document dir: \(documentDirectory.path)")
 		
 		player.delegate = self
+		
+		updateSlider()
+		// TODO: test for when file isn't loaded properly, don't want a 0 duration
 	}
 
 
