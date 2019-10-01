@@ -33,6 +33,12 @@ class AudioRecorderController: UIViewController {
                                                           weight: .regular)
         timeRemainingLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeRemainingLabel.font.pointSize,
                                                                    weight: .regular)
+		
+		// TODO: Cleanup for production
+		let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+		print("Document dir: \(documentDirectory.path)")
+		
+		
 	}
 
 

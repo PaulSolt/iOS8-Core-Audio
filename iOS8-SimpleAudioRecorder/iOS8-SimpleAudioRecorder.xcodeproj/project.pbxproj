@@ -14,6 +14,7 @@
 		BD8D4B552343B3DA001432F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B532343B3D9001432F7 /* Main.storyboard */; };
 		BD8D4B562343B3DA001432F7 /* AudioRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */; };
 		BD8D4B582343B530001432F7 /* piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD8D4B572343B530001432F7 /* piano.mp3 */; };
+		BD8D4B5A2343B998001432F7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D4B592343B998001432F7 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BD8D4B532343B3D9001432F7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderController.swift; sourceTree = "<group>"; };
 		BD8D4B572343B530001432F7 /* piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piano.mp3; sourceTree = "<group>"; };
+		BD8D4B592343B998001432F7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				BD8D4B412343B330001432F7 /* SceneDelegate.swift */,
 				BD8D4B542343B3DA001432F7 /* AudioRecorderController.swift */,
 				BD8D4B532343B3D9001432F7 /* Main.storyboard */,
+				BD8D4B592343B998001432F7 /* AudioPlayer.swift */,
 				BD8D4B482343B331001432F7 /* Assets.xcassets */,
 				BD8D4B572343B530001432F7 /* piano.mp3 */,
 				BD8D4B4A2343B331001432F7 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				BD8D4B402343B330001432F7 /* AppDelegate.swift in Sources */,
 				BD8D4B562343B3DA001432F7 /* AudioRecorderController.swift in Sources */,
 				BD8D4B422343B330001432F7 /* SceneDelegate.swift in Sources */,
+				BD8D4B5A2343B998001432F7 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
